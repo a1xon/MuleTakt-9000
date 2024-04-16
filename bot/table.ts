@@ -20,8 +20,8 @@ export class Table {
         log(`TABLE: turn ${slotsToTurn} slot${slotsToTurn > 1 ? 's' : ''}`);
 
         return new Promise ((resolve) => {
-            const alertHandler = (level) => {
-                if (level === 1) {
+            const alertHandler = (endstopLevel : 0 | 1) => {
+                if (endstopLevel === 1) {
                     slotsToTurn--;
                     log(`TABLE:  slots to go ${slotsToTurn}`);
                     this.positions.pop();
