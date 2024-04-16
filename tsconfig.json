@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+      "lib": ["es2022", "dom"], // ES2020 in earlier versions
+      "module": "es2022", //ESNext 
+      "moduleResolution": "Node",
+      "target": "es2022", // ES2020 in earlier versions
+      "esModuleInterop": true,
+      "skipLibCheck": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
+}
