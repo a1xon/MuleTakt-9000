@@ -4,8 +4,7 @@ import { log } from "./utils/logger"
 import { sleep } from "./utils/sleep"
 process.setMaxListeners(0);
 
-
-log('MAIN: = Mulenado v.0.1 =');
+log('MAIN: = MuleTakt 9000 v.0.2 =');
 sleep(100);
 log('MAIN: initialize pigpio');
 initialize();
@@ -21,11 +20,11 @@ process.on('SIGTERM', () => {
   log('MAIN: SIGTERM - Forcefully terminating');
 });
 
+let bot : Bot;
+
 const startUp = async () => {
-  const bot = new Bot();
-  // for (const dispenser of bot.dispensers) {
-  //   await dispenser.selfTest();
-  // }
+  bot = new Bot();
+  await selfTest();
   await sleep(5000);
   bot.acceptDrink();
   bot.acceptDrink();
@@ -33,5 +32,13 @@ const startUp = async () => {
   bot.acceptDrink();
   return true;
 }
+
+const selfTest = async () => {
+  await bot.table.selfTest();
+  for (const dispenser of bot.dispensers) {
+      await dispenser.selfTest();
+  }
+};
+
 
 await startUp();

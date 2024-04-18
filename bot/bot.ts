@@ -38,7 +38,7 @@ export class Bot {
         }
     };
 
-    async run() {
+    async run() : Promise<Boolean | Error>{
         this.active = true;
 
         while (this.table.positions.some(Boolean) || this.queue.length > 0) {
@@ -54,11 +54,13 @@ export class Bot {
                 await Promise.all(duties);
             } catch (err) {
                 log(`BOT: ${err}`);
+                return Error(err);
             }
-            await this.table.turn(1);
+            await this.table.turn();
         }
 
         this.active = false;
         log(`BOT: No active drinks anymore`);
+        return true;
     }
 }
