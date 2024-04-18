@@ -16,3 +16,4 @@ npm install --g node-gyp@latest
 npm config set node_gyp $(npm prefix -g)/lib/node_modules/node-gyp/bin/node-gyp.js
 sudo npm install -g typescript
 npm install
+npx tsx ./main.ts

@@ -20,11 +20,9 @@ process.on('SIGTERM', () => {
   log('MAIN: SIGTERM - Forcefully terminating');
 });
 
-let bot : Bot;
-
 const startUp = async () => {
-  bot = new Bot();
-  await selfTest();
+  const bot = new Bot();
+  // await selfTest();
   await sleep(5000);
   bot.acceptDrink();
   bot.acceptDrink();
@@ -33,12 +31,12 @@ const startUp = async () => {
   return true;
 }
 
-const selfTest = async () => {
-  await bot.table.selfTest();
-  for (const dispenser of bot.dispensers) {
-      await dispenser.selfTest();
-  }
-};
+// const selfTest = async () => {
+//   await bot.table.selfTest();
+//   for (const dispenser of bot.dispensers) {
+//       await dispenser.selfTest();
+//   }
+// };
 
 
 await startUp();
