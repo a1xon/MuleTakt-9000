@@ -13,7 +13,7 @@ export class Drink {
     cup: Process;
     gingerbeer: Process;
     vodka: Process;
-    cucumber: Process;
+    lime: Process;
     ice: Process;
     stirr: Process;
 
@@ -21,7 +21,7 @@ export class Drink {
         this.cup = new Process();
         this.gingerbeer = new Process();
         this.vodka = new Process();
-        this.cucumber = new Process();
+        this.lime = new Process();
         this.ice = new Process();
         this.stirr = new Process();
     }

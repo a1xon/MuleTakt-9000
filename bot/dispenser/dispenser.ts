@@ -1,7 +1,7 @@
 import {Drink} from "../../drink/drink"
 
 export interface Dispenser {
-    acceptTask : (current : Drink, next: Drink) => Promise<boolean | Error>;
+    acceptTask : (current : Drink | undefined, next: Drink | undefined) => Promise<boolean | Error>;
     headsUp : (drink: Drink) => Promise<boolean | Error>;
     selfTest : () => Promise<boolean | Error>;
 }

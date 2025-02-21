@@ -19,7 +19,7 @@ export class Cup implements Dispenser {
         this.detector = detector;
     };
 
-    acceptTask (current : Drink, _next: Drink) : Promise<boolean | Error> {
+    acceptTask (current : Drink | undefined, _next: Drink | undefined) : Promise<boolean | Error> {
         // already a (full?) cup in position
         return new Promise(async (resolve, reject) => {
             if (current === undefined) {

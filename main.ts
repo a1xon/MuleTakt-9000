@@ -7,7 +7,8 @@ process.setMaxListeners(0);
 log('MAIN: = MuleTakt 9000 v.0.2 =');
 sleep(100);
 log('MAIN: initialize pigpio');
-initialize();
+/// terminate();
+// initialize();
 sleep(100);
 
 process.on('SIGINT', () => {
@@ -22,21 +23,13 @@ process.on('SIGTERM', () => {
 
 const startUp = async () => {
   const bot = new Bot();
-  // await selfTest();
-  await sleep(5000);
-  bot.acceptDrink();
-  bot.acceptDrink();
-  await sleep(30000);
-  bot.acceptDrink();
+  await bot.selfTest();
+  // await sleep(5000);
+  // bot.acceptDrink();
+  // bot.acceptDrink();
+  // await sleep(30000);
+  // bot.acceptDrink();
   return true;
 }
-
-// const selfTest = async () => {
-//   await bot.table.selfTest();
-//   for (const dispenser of bot.dispensers) {
-//       await dispenser.selfTest();
-//   }
-// };
-
 
 await startUp();

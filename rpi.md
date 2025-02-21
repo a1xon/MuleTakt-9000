@@ -8,6 +8,24 @@ cd pigpio-master
 make
 sudo make install
 sudo pigpiod
+
+sudo nano /etc/systemd/system/pigpiod.service
+
+"[Unit]
+Description=Pigpio daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/pigpiod -l
+ExecStop=/usr/bin/pigs pq
+
+[Install]
+WantedBy=multi-user.target"
+
+sudo systemctl daemon-reload
+sudo systemctl enable pigpiod
+sudo systemctl start pigpiod
+
 cd ~
 git clone https://github.com/a1xon/MuleTakt-9000
 cd MuleTakt-9000/
